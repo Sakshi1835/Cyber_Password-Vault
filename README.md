@@ -20,9 +20,9 @@ Built using **Flask**, with **encryption** handled by **PyCryptodome** and **Fla
 
 Install the required Python libraries:
 
-On Bash \ Terminals - 
-pip install flask
-pip install pycryptodome
+On Bash \ Terminals -   
+pip install flask  
+pip install pycryptodome  
 pip install flask-bcrypt
 
 ---
@@ -33,14 +33,14 @@ Follow these steps:
 
 1. **Clone the repository or download the project files.**
 
---- bash
-git clone https://github.com/Sakshi1835/Cyber_Password-Vault.git
+--- bash  
+git clone https://github.com/Sakshi1835/Cyber_Password-Vault.git  
 cd secure-vault
 
 2. **Install the required Python packages.**
 3. **Run the Flask application.**
 
----bash 
+---bash  
 python app.py
 
 4. **Open your browser and Explore the Project.**
