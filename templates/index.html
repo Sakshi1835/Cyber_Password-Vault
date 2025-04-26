@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Manager</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: whitesmoke;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .view {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+    }
+
+    .password-manager-container {
+      background-color: linear-gradient(to bottom, #4CAF50, #36dcd7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .password-manager-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: none;
+    }
+
+    .form-group input {
+      width: calc(100% - 24px);
+      padding: 12px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      display: inline-block;
+      font-size: 14px;
+      padding-left: 40px;
+      /* Add padding for the icon */
+    }
+
+    .form-group .icon {
+      position: absolute;
+      left: 25px;
+      top: 35%;
+      transform: translateY(-50%);
+      color: #0f0909;
+      align-items: center;
+    }
+
+    .form-group .icon i {
+      font-size: 18px;
+    }
+
+    .form-group .eye-icon {
+      cursor: pointer;
+      position: absolute;
+      right: 25px;
+      top: 35%;
+      transform: translateY(-50%);
+      color: black;
+      align-items: center;
+    }
+
+    .form-group .eye-icon i {
+      font-size: 18px;
+    }
+
+    .form-group button {
+      background-color: #1279e0;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #45a049;
+    }
+
+    .passwords-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 1200px;
+      text-align: left;
+    }
+
+    .passwords-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #11c3ec;
+      color: #fff;
+    }
+
+    td {
+      background-color: #f5f5f5;
+      position: relative;
+    }
+
+    .eye-icon-table {
+      cursor: pointer;
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+
+    .eye-icon-table i {
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="password-manager-container">
+    <h2>Password Manager</h2>
+    <form action="/store_password" method="post">
+      <div class="form-group">
+        <label for="Website">Website:</label>
+        <input type="text" id="firstname" name="web1" placeholder="Website" required>
+        <span class="icon"><i class="fas fa-globe"></i></span>
+      </div>
+      <div class = "form-group">
+        <label for="Username">Your username:</label>
+        <input type="text" id="lastname" name="user1" placeholder="username" required>
+        <span class="icon"><i class="fas fa-user"></i></span>
+      </div>
+      <div class = "form-group">
+        <label for="Password">Your Password:</label>
+        <input type="password" id="lastname" name="pass1" placeholder="Password" required>
+        <span class="icon"><i class="fas fa-key"></i></span>
+        <!-- <span class="eye-icon" onclick="togglePassword('password')"><i class="fas fa-eye"></i></span> -->
+      </div>
+      
+      <div class = "form-group">
+        <button type="submit">Store Password</button>
+      </div>
+
+    </form>
+  </div>
+
+
+
+  <div class="passwords-container" id="passwordsContainer">
+    <h2>Stored Passwords</h2> 
+    <table>
+      <tr>
+      <td>
+    <form action="/view_password" method="post">
+      
+        <label for="Password">Enter Root Password:</label>
+        <input type="password" id="lastname" name="root1" placeholder="Root Password">      
+      <div class = "form-group"><br>
+        <button type="submit" >View Passwords</button>
+      </div>
+    </form>
+  </td>
+  <td >
+    <form action="/" >
+      <div class = "form-group">
+        <br>
+        <button type="submit">Hide Passwords</button>
+      </div>
+    </form>
+    
+    <form action="/delete_all" method="post">
+      <div class="form-group"><br>
+          <button type="submit" style="background-color: red; color: white;">Delete All Entries</button>
+      </div>
+  </form>
+  
+  </td>
+  </tr>
+  </table>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Website</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody id="passwordList">
+        {% for row in results %}
+        <tr>
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }} </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+
+
+    function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+    input.type = input.type === 'password' ? 'text' : 'password';
+  }
+
+  function togglePasswordTable(eyeIcon) {
+    const passwordValue = eyeIcon.previousElementSibling;
+    const passwordType = passwordValue.classList.toggle('password-visible') ? 'text' : 'password';
+    eyeIcon.innerHTML = `<i class="${passwordType === 'text' ? 'fas fa-eye-slash' : 'fas fa-eye'}"></i>`;
+    passwordValue.previousElementSibling.type = passwordType;
+  }
+  </script>
+
+</body>
+
+</html>
