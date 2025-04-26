@@ -1,4 +1,4 @@
-# Cyber_Password-Vault
+
 
 # 🔐 Secure Password Vault
 
@@ -20,7 +20,7 @@ Built using **Flask**, with **encryption** handled by **PyCryptodome** and **Fla
 
 Install the required Python libraries:
 
-On Bash \ Terminals -   
+On Bash \ Terminal -   
 pip install flask  
 pip install pycryptodome  
 pip install flask-bcrypt
