@@ -34,7 +34,7 @@ Follow these steps:
 1. **Clone the repository or download the project files.**
 
 --- bash
-git clone https://github.com/your-username/secure-vault.git
+git clone https://github.com/Sakshi1835/Cyber_Password-Vault.git
 cd secure-vault
 
 2. **Install the required Python packages.**
